@@ -1,5 +1,5 @@
 import React from 'react';
-import Dragula from 'dragula';
+import Dragula from 'react-dragula';
 import 'dragula/dist/dragula.css';
 import Swimlane from './Swimlane';
 import './Board.css';
@@ -49,6 +49,12 @@ export default class Board extends React.Component {
       description: companyDetails[2],
       status: companyDetails[3],
     }));
+  }
+  dragulaRef = (componentBackingInstance) =>{
+    if(componentBackingInstance){
+      let options = {}
+      Dragula([componentBackingInstance], options)
+    }
   }
   renderSwimlane(name, clients, ref) {
     return (
